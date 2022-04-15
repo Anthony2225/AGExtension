@@ -38,7 +38,7 @@ public extension UITextView {
             if let placeholderColor = objc_getAssociatedObject(self, &AssiciatedKey.AGextViewPlaceholderColor) as? UIColor {
                 return placeholderColor
             } else {
-                return .darkText
+                return .gray
             }
         }
         set {
@@ -67,7 +67,7 @@ public extension UITextView {
         get {
             var _holderLabel = UILabel()
             _holderLabel.font = font ?? UIFont.systemFont(ofSize: 12)
-            _holderLabel.textColor = .darkText
+            _holderLabel.textColor = .gray
             _holderLabel.textAlignment = .left
             if let label = objc_getAssociatedObject(self, &AssiciatedKey.AGextViewPlaceholderLabel) as? UILabel {
                 _holderLabel = label
@@ -108,10 +108,13 @@ public extension UITextView {
         
         NotificationCenter.default.addObserver(self, selector: #selector(ag_textChange(noti:)), name: UITextView.textDidChangeNotification, object: nil)
         
+        label.translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)
-        label.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 7, left: 2, bottom: 0, right: 0))
-        }
+         
+        label.topAnchor.constraint(equalTo: label.superview!.topAnchor, constant: 7).isActive = true
+        label.leftAnchor.constraint(equalTo: label.superview!.leftAnchor,constant: 4).isActive = true
+        label.bottomAnchor.constraint(equalTo: label.superview!.bottomAnchor,constant: 0).isActive  = true
+        label.widthAnchor.constraint(equalTo: label.superview!.widthAnchor,constant: -10).isActive = true
     }
     
     /// 编辑事件
