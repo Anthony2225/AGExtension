@@ -91,23 +91,49 @@ public extension CALayer {
 // MARK: -----////  拓展  CACornerMask  方便设置 方向\\\\-----
 public extension CACornerMask {
     
+    /// 左上
     static let leftTop = CACornerMask.layerMinXMinYCorner
-
+    /// 右上
     static let rightTop = CACornerMask.layerMaxXMinYCorner
 
+    /// 左下
     static let leftBottom = CACornerMask.layerMinXMaxYCorner
 
+    /// 右下
     static let rightBottom = CACornerMask.layerMaxXMaxYCorner
     
+    /// 四个角
     static let all: CACornerMask = [.leftTop, .rightTop, .leftBottom, .rightBottom]
     
+    /// 两个上
     static let bothTop: CACornerMask = [.leftTop, .rightTop]
     
+    /// 两个下
     static let bothBottom: CACornerMask = [.leftBottom, .rightBottom]
     
+    /// 两个左
     static let bothLeft: CACornerMask = [.leftTop, .leftBottom]
     
+    /// 两个右
     static let bothRight: CACornerMask = [.rightTop, .rightBottom]
+    
+    ///左上右下
+    static let topLeftBottomRight: CACornerMask = [.leftTop,.rightBottom]
+    
+    /// 右上左下
+    static let topRightBottomLeft: CACornerMask = [.rightTop,.leftBottom]
+    
+    /// 两个上一个左下
+    static let twoTopLeftBottom: CACornerMask = [.bothTop,.leftBottom]
+    
+    /// 两个上一个右下
+    static let twoTopRightBottom: CACornerMask = [.bothTop,.rightBottom]
+    
+    /// 两个下一个左上
+    static let twoBottomLeftTop: CACornerMask = [ .bothBottom ,.leftTop]
+
+    /// 两个下一个右上
+    static let twoBottomRightTop: CACornerMask = [ .bothBottom ,.rightTop]
 
 
 }
