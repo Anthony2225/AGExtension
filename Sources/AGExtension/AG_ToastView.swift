@@ -55,7 +55,7 @@ public class AgToast {
     fileprivate  var isShowed: Bool = false
     public var haptic: UINotificationFeedbackGenerator.FeedbackType? = nil
     
-    static let shared = AgToast()
+    public static let shared = AgToast()
     var toast:AgToastView?
     
     public enum IconType:String {
