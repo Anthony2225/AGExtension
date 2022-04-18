@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+// MARK: ===================================拓展类:用于UITextView 和 UITextField=========================================
 
 public extension UITextView {
     
@@ -124,4 +125,23 @@ public extension UITextView {
         ag_HolderLabel.text = isEmpty ? ag_Placeholder: ""
         ag_HolderLabel.isHidden = !isEmpty
     }
+}
+
+
+
+public extension UITextField {
+    
+
+    /// 设置自定义的占位符
+    /// - Parameters:
+    ///   - placeHolder: 占位符内容
+    ///   - font: 占位符字体
+    ///   - placeHolderColor: 占位符颜色
+    func ag_Placeholder(placeHolder: String ,
+                        font : UIFont = .systemFont(ofSize: 13),
+                        placeHolderColor: UIColor = UIColor.placeholderText) {
+        self.attributedPlaceholder = NSAttributedString(string: placeHolder, attributes:[NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: placeHolderColor] )
+    }
+
+
 }
